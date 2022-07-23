@@ -23,6 +23,12 @@ namespace Snake
             sym = _sym;
         }
 
+        public static void Move(Point p, int dx, int dy)
+        {
+            p.x = p.x + dx;
+            p.y = p.y + dy;
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
