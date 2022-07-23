@@ -11,33 +11,27 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            VerticalLine vl = new VerticalLine(0, 10, 5, '%');
-            Draw(vl);
+            Console.SetBufferSize(120, 30);
 
+            Walls walls = new Walls(120, 30);
+            walls.Draw();
+
+            //Отрисовка точек
             Point p = new Point(4, 5, '*');
-            Figure fSnake = new Snake(p, 4, Direction.RIGHT);
-            Draw(fSnake);
-            Snake snake = (Snake)fSnake;
-
-            HorizontalLine hl = new HorizontalLine(0, 5, 6, '&');
-
-            List<Figure> figures = new List<Figure>();
-            figures.Add(fSnake);
-            figures.Add(vl);
-            figures.Add(hl);
-
-            foreach(var f in figures)
-            {
-                f.Draw();
-            }
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
 
             FoodCreator foodCreator = new FoodCreator(120, 30, '$');
             Point food = foodCreator.CreateFood();
             food.Draw();
-            
-            while(true)
+
+            while (true)
             {
-                if(snake.Eat(food))
+                if(walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+                if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
@@ -54,12 +48,7 @@ namespace Snake
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
                 }
-            }          
-        }
-
-        static void Draw(Figure figure)
-        {
-            figure.Draw();
+            }
         }
     }
 }
