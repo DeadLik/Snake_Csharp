@@ -1,0 +1,7 @@
+C:\java\snake\Snake\Snake\bin\Debug\Snake.exe.config
+C:\java\snake\Snake\Snake\bin\Debug\Snake.exe
+C:\java\snake\Snake\Snake\bin\Debug\Snake.pdb
+C:\java\snake\Snake\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\java\snake\Snake\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
+C:\java\snake\Snake\Snake\obj\Debug\Snake.exe
+C:\java\snake\Snake\Snake\obj\Debug\Snake.pdb
