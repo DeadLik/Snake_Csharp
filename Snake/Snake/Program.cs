@@ -26,35 +26,12 @@ namespace Snake
             figures.Add(vl);
             figures.Add(hl);
 
-            foreach(var f in figures)
+            foreach (var f in figures)
             {
                 f.Draw();
             }
 
-            FoodCreator foodCreator = new FoodCreator(120, 30, '$');
-            Point food = foodCreator.CreateFood();
-            food.Draw();
-            
-            while(true)
-            {
-                if(snake.Eat(food))
-                {
-                    food = foodCreator.CreateFood();
-                    food.Draw();
-                }
-                else
-                {
-                    snake.Move();
-                }
-
-                Thread.Sleep(100);
-
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandleKey(key.Key);
-                }
-            }          
+            Console.ReadLine();
         }
 
         static void Draw(Figure figure)
